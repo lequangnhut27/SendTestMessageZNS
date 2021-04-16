@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SendTestMessageZNS.Service"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SendTestMessageZNS.WebApp", "SendTestMessageZNS.WebApp\SendTestMessageZNS.WebApp.csproj", "{6CCA56A6-E8A9-4D1B-A9FD-4AFE5F7F916F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SendTestMessageZNS.Data", "SendTestMessageZNS.Data\SendTestMessageZNS.Data.csproj", "{C7B43CDA-BCFD-4B03-A61E-8D8ABECA7E72}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{6CCA56A6-E8A9-4D1B-A9FD-4AFE5F7F916F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6CCA56A6-E8A9-4D1B-A9FD-4AFE5F7F916F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6CCA56A6-E8A9-4D1B-A9FD-4AFE5F7F916F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7B43CDA-BCFD-4B03-A61E-8D8ABECA7E72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7B43CDA-BCFD-4B03-A61E-8D8ABECA7E72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7B43CDA-BCFD-4B03-A61E-8D8ABECA7E72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7B43CDA-BCFD-4B03-A61E-8D8ABECA7E72}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

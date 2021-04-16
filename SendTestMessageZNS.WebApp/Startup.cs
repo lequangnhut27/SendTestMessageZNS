@@ -10,6 +10,7 @@ using SendTestMessageZNS.Service.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace SendTestMessageZNS.WebApp
@@ -26,9 +27,19 @@ namespace SendTestMessageZNS.WebApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddHttpClient();
-            services.AddTransient<IOAService, OAService>();
-            services.AddTransient<IZnsService, ZnsService>();
+            services.AddHttpClient(nameof(ZnsService), c =>
+            {
+                c.BaseAddress = new Uri(Configuration["BaseAddress"]);
+                c.DefaultRequestHeaders.Add("access_token", Configuration["AccessToken"]);
+            });
+
+            services.AddTransient<IZnsService, ZnsService>(provider =>
+            {
+                var factory = provider.GetRequiredService<IHttpClientFactory>();
+                var httpClient = factory.CreateClient(nameof(ZnsService));
+                return new ZnsService(httpClient);
+            });
+            
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

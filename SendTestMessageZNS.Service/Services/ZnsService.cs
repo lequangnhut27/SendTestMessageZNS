@@ -8,11 +8,11 @@ namespace SendTestMessageZNS.Service.Services
 {
     public interface IZnsService
     {
-        Task<string> GetAllTemplates(string data);
-        Task<string> GetTemplateInfo(int templateId);
-        Task<string> GetTemplateSampleData(int templateId);
-        Task<string> SendMessage(string data);
-        Task<string> GetMessageStatus(string data);
+        Task<HttpResponseMessage> GetAllTemplates(string data);
+        Task<HttpResponseMessage> GetTemplateInfo(int templateId);
+        Task<HttpResponseMessage> GetTemplateSampleData(int templateId);
+        Task<HttpResponseMessage> SendMessage(string data);
+        Task<HttpResponseMessage> GetMessageStatus(string data);
 
 
     }
@@ -24,7 +24,7 @@ namespace SendTestMessageZNS.Service.Services
             _client = client;
         }
 
-        public async Task<string> GetAllTemplates(string data)
+        public async Task<HttpResponseMessage> GetAllTemplates(string data)
         {
             //Tạo request
             string url = "template/all";
@@ -35,10 +35,10 @@ namespace SendTestMessageZNS.Service.Services
             // Call API
             var response = await _client.SendAsync(request);
 
-            return await response.Content.ReadAsStringAsync();
+            return response;
         }
 
-        public async Task<string> GetTemplateInfo(int templateId)
+        public async Task<HttpResponseMessage> GetTemplateInfo(int templateId)
         {
             //Tạo request
             string url = $"template/all?template_id={templateId}";
@@ -47,10 +47,10 @@ namespace SendTestMessageZNS.Service.Services
             // Call API
             var response = await _client.SendAsync(request);
 
-            return await response.Content.ReadAsStringAsync();
+            return response;
         }
 
-        public async Task<string> GetTemplateSampleData(int templateId)
+        public async Task<HttpResponseMessage> GetTemplateSampleData(int templateId)
         {
             //Tạo request
             string url = $"template/sample-data?template_id={templateId}";
@@ -59,10 +59,10 @@ namespace SendTestMessageZNS.Service.Services
             // Call API
             var response = await _client.SendAsync(request);
 
-            return await response.Content.ReadAsStringAsync();
+            return response;
         }
 
-        public async Task<string> SendMessage(string data)
+        public async Task<HttpResponseMessage> SendMessage(string data)
         {
             //Tạo request
             string url = "message/template";
@@ -72,10 +72,10 @@ namespace SendTestMessageZNS.Service.Services
             // Call API
             var response = await _client.SendAsync(request);
 
-            return await response.Content.ReadAsStringAsync();
+            return response;
         }
 
-        public async Task<string> GetMessageStatus(string data)
+        public async Task<HttpResponseMessage> GetMessageStatus(string data)
         {
             //Tạo request
             string url = "message/status";
@@ -85,10 +85,7 @@ namespace SendTestMessageZNS.Service.Services
             // Call API
             var response = await _client.SendAsync(request);
 
-            return await response.Content.ReadAsStringAsync();
+            return response;
         }
-
-
-
     }
 }
